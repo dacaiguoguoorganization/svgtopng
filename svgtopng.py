@@ -1,8 +1,21 @@
 from cairosvg import svg2png
+
+from PIL import Image
+
 # 设置背景颜色
 background_color = 'white'
 svg2png(url = 'https://img.zdic.net/xz/swdz/9999_7712.svg', background_color=background_color, output_width=1024, output_height=1024, write_to='output.png')
 
+# 下面方法会变成全黑的图片
+# # 打开 PNG 图像
+# image = Image.open('output.png')
+
+# # 如果原始图像带有透明通道，则将结果图像转换为 RGBA 模式以保留透明通道
+# if 'A' in image.getbands():
+#     image = image.convert('RGBA')
+
+# # 保存处理后的图像
+# image.save('output_no_alpha.png', 'PNG')
 
 # cairosvg.svg2png(
 #     file_obj=None,     # 输入的 SVG 文件对象，可以是文件名的字符串，文件对象，或 SVG 数据的字符串
